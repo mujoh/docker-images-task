@@ -1,0 +1,12 @@
+FROM openjdk:8-jdk-alpine
+
+RUN apk add git && apk add maven
+RUN git clone https://github.com/kkenan/basic-microservices /home/microservices 
+
+COPY ./config.yml /home/microservices/spring-boot-app/
+
+WORKDIR /home/microservices/spring-boot-app
+
+RUN mvn clean package
+
+ENTRYPOINT ["java","-jar","./target/spring-boot-app-1.0-SNAPSHOT.jar","--spring.config.location=./config.yml"]
