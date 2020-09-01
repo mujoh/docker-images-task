@@ -11,6 +11,6 @@ spring:
       temp.use_jdbc_metadata_defaults: false
 
   datasource:
-    url: jdbc:postgresql://db:5432/db
-    username: user
-    password: pass
+    url: jdbc:postgresql://db:5432/{{dbname}}
+    username: {{dbusername}}
+    password: {{dbpassword}}

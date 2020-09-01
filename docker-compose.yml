@@ -8,23 +8,26 @@ services:
         context: ./dockerfiles
         dockerfile: Dockerfile.node
     network_mode: bridge
+    container_name: node-app
     restart: always
     ports:
             - 8081:8081
   db:
     image: postgres:10
     network_mode: bridge
+    container_name: postgresql
     restart: always
     environment:
-      POSTGRES_DB: db
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
   spring-boot:
     image: spring-boot-app:v1
     build: 
         context: ./dockerfiles
         dockerfile: Dockerfile.spring
     network_mode: bridge
+    container_name: spring-boot-app
     restart: always
     ports:
             - 8080:8080
