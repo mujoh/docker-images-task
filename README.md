@@ -2,6 +2,10 @@
 
 This repository consists of Dockerfiles required for running basic-microservices from https://github.com/kkenan/basic-microservices.
 
+Requirements:
+  * Docker
+  * docker-compose
+
 In ``` dockerfiles/ ``` folder you can find ``` Dockerfile.node ``` which creates Docker image for node application from referenced repository and ``` Dockerfile.spring ``` which creates Docker image for spring-boot application.
 
 In order to run this simple application you have to run ``` start_microservices.sh ``` script with following parameters:
